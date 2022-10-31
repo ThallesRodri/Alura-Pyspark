@@ -14,14 +14,14 @@ print(f'Recebendo solicitação de: {address}')
 
 token = 'AAAAAAAAAAAAAAAAAAAAAGuhigEAAAAAu%2FpbjSWNhFVvFOOqTH8WOYGrWIQ%3DFBMdk7xjJesab0MqRYHh8XeySB8OGWH8ojkaAgVCLwEMAYQwRY'
 
-key_word = 'thalles'
+key_word = 'Thalles'
 
 class GetTweets(tweepy.StreamingClient):
     def on_tweet(self, tweet):
         print(tweet.text)
         print('='*50)
 
-        connection.send(tweet.text.enconde('latin1', 'ignore'))
+        connection.send(tweet.text.encode('latin1', 'ignore'))
 
 printer = GetTweets(token)
 printer.add_rules(tweepy.StreamRule(key_word))
